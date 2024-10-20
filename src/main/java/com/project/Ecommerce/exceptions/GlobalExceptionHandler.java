@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
 
 	public ResponseEntity<String> handleNotFoundException(Exception nfe) {
 		// TODO Auto-generated method stub
-		log.error("Record not found for the given id");
+		log.error("Record not found for the given ID");
 		nfe.printStackTrace();
 		return new ResponseEntity<String>(nfe.getMessage(), HttpStatus.NOT_FOUND);
 	}
