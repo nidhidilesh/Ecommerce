@@ -50,8 +50,7 @@ public class ProductController {
 	
 	
 	@GetMapping("/getProducts/{id}")
-	public ResponseEntity<Product> getProductById(@PathVariable int id){
-		System.out.println(id);
+	public ResponseEntity<Object> getProductById(@PathVariable int id){
 		return productService.getProductById(id);
 	}
 }

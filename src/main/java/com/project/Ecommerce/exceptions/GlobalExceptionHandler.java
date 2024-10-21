@@ -30,11 +30,11 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<String>(dae.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	public ResponseEntity<String> handleNotFoundException(Exception nfe) {
+	public ResponseEntity<Object> handleNotFoundException(Exception nfe) {
 		// TODO Auto-generated method stub
-		log.error("Record not found for the given ID");
+		log.error(nfe.getMessage());
 		nfe.printStackTrace();
-		return new ResponseEntity<String>(nfe.getMessage(), HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Object>(nfe.getMessage(), HttpStatus.NOT_FOUND);
 	}
 
 }

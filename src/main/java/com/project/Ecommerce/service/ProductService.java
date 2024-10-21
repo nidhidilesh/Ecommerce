@@ -56,14 +56,13 @@ public class ProductService {
 		
 	}
 
-	public ResponseEntity<Product> getProductById(int id) {
+	public ResponseEntity<Object> getProductById(int id) {
 		Optional<Product> productById = productRepo.findById(id);
 		if(!productById.isEmpty()) {
 			return new ResponseEntity<>(productById.get(),HttpStatus.OK);
 		}else {
-			Exception nfe = new RuntimeException("Id not found Exception");
-			exceptionHandler.handleNotFoundException(nfe);
-			return new ResponseEntity<Product>(HttpStatus.NOT_FOUND);
+			Exception nfe = new RuntimeException("Record not found for the given ID");
+			return exceptionHandler.handleNotFoundException(nfe);
 		}
 	}
 
